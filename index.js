@@ -35,16 +35,13 @@ function viewCart() {
     return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`
   }
 
-  // if (cart.length > 2{
-  //   return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`
-  // }
-    
-  // 1 item — `In your cart, you have bananas at $17.`
-  // 2 items — `In your cart, you have bananas at $17, and pancake batter at $5.`
-  // 3+ items — `In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49.`
-
-//`In your cart, you have bananas at $17, pancake batter at $5, and eggs at $49.`
-
+  if (cart.length > 2){
+    for (i = 0; i < cart.length-1; i ++){
+      str  += ` ${cart[i].itemName} at $${cart[i].itemPrice},`
+    }
+    str += ` and ${cart[cart.length-1].itemName} at $${cart[cart.length-1].itemPrice}.`
+    return str
+  }
 }
 
 function total() {
