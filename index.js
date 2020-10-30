@@ -36,7 +36,7 @@ function viewCart() {
   }
 
   if (cart.length > 2){
-    for (i = 0; i < cart.length-1; i ++){
+    for (let i = 0; i < cart.length-1; i ++){
       str  += ` ${cart[i].itemName} at $${cart[i].itemPrice},`
     }
     str += ` and ${cart[cart.length-1].itemName} at $${cart[cart.length-1].itemPrice}.`
@@ -66,4 +66,12 @@ function removeFromCart(item) {
 
 function placeOrder(cardNumber) {
   // write your code here
+  if(cardNumber == undefined){
+    return "Sorry, we don't have a credit card on file for you."
+  }
+  else {
+    let cartTotal = total()
+    setCart([])
+    return `Your total cost is $${cartTotal}, which will be charged to the card ${cardNumber}.`
+  }
 }
