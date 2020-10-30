@@ -54,6 +54,14 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
+  if (cart.find(i => i.itemName == item)){
+    const obj = cart.find(i => i.itemName == item)
+    cart.splice(cart.indexOf(obj), 1)
+    setCart(cart)
+  }
+  else{
+    return 'That item is not in your cart.'
+  }
 }
 
 function placeOrder(cardNumber) {
